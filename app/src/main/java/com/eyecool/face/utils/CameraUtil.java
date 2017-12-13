@@ -99,8 +99,8 @@ public class CameraUtil {
 
                         //1.从截图中截取含有人脸的图片，如果摄像头设置成镜像的话，就需要对图片做镜像处理。。。。。。。。。。。。。。，然后再转换成base64
                         Bitmap cropBitmap = BitmapUtil.cropBitmap(dstbmp, faceLoc, 2f);
-                        ivCorrect.setImageBitmap(cropBitmap);
-
+                        Bitmap mirrorBitmap = BitmapUtil.mirrorPic(cropBitmap);
+                        ivCorrect.setImageBitmap(mirrorBitmap);
                     }
 
                     //TODO：此处可以对位图进行处理，如显示，保存等

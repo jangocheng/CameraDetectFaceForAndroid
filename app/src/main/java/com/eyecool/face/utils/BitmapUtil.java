@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Environment;
 import android.support.annotation.ColorInt;
@@ -27,6 +28,23 @@ import java.text.SimpleDateFormat;
 public class BitmapUtil {
     private static final String TAG = "BitmapUtil";
 
+
+    public static Bitmap mirrorPic(Bitmap srcBitmap){
+        Bitmap mirrorBitmap = Bitmap.createBitmap(srcBitmap.getWidth(), srcBitmap.getHeight(), srcBitmap.getConfig());
+        Canvas canvas = new Canvas(mirrorBitmap);
+        Paint paint = new Paint();
+        paint.setColor(Color.BLACK);
+        paint.setAntiAlias(true);
+        Matrix matrix = new Matrix();
+        //matrix.setRotate(90, bm.getWidth()/2, bm.getHeight()/2);
+        //matrix.setTranslate(20, 20);
+        //镜子效果
+        matrix.setScale(-1, 1);
+        matrix.postTranslate(srcBitmap.getWidth(), 0);
+
+        canvas.drawBitmap(srcBitmap, matrix, paint);
+        return mirrorBitmap;
+    }
     /**
      * 从位图中获取 RGB 值
      *

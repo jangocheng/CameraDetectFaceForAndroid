@@ -127,6 +127,7 @@ public class SsDuckFaceRecognition {
         //-------------开发版外接USB摄镜头，并且设置为前置的时候，显示屏为竖屏状态，需要镜像处理坐标，经验值是用 480 处理
         //-------------人证合一Android设备检测外面的要调用后置摄像头(设备做了镜像处理了)，需要镜像处理坐标，经验值是用 480 处理
         mirrorRects[0] = rightWidth - faceRect[0] - faceRect[2];
+//        mirrorRects[0] = faceRect[0];
         mirrorRects[1] = faceRect[1];
         mirrorRects[2] = faceRect[2];
         mirrorRects[3] = faceRect[3];
